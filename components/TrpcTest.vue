@@ -1,11 +1,11 @@
 <script setup lang="tsx">
 const { $client } = useNuxtApp()
 
-const hello = await $client.hello.useQuery({ text: 'client' });
+const userData = await $client.me.useQuery();
 </script>
 
 <template>
   <div>
-    <p>{{ hello.data?.value?.greeting }}</p>
+    <p>{{ JSON.stringify(userData.data?.value) }}</p>
   </div>
 </template>

@@ -21,6 +21,7 @@ async function signOut() {
         loading.value = true
         let { error } = await supabaseClient.auth.signOut()
         if (error) throw error
+        navigateTo("/login");
     } catch (error) {
         alert(error.message)
     } finally {

@@ -5,6 +5,7 @@ import { Radar } from "vue-chartjs";
 ChartJS.register(RadarController, LineElement, PointElement, RadialLinearScale, Filler);
 
 const user = useSupabaseUser()
+const client = useSupabaseClient();
 
 //////////////////////
 
@@ -52,8 +53,12 @@ const updateChart = () => {
 
 <template>
   <div>
-    <div>
-      <Account v-if="user" />
+    <div v-if="user">
+      <Account />
+      <div>
+        <label>TRPC test</label>
+        <TrpcTest />
+      </div>
     </div>
 
     <div>
@@ -71,11 +76,6 @@ const updateChart = () => {
         <label>Randomize: </label>
         <button
           @click="() => { Object.keys(subjectData).forEach((subject) => { subjectData[subject] = Math.floor(Math.random() * 100) }); updateChart() }">Randomize</button>
-      </div>
-
-      <div>
-        <label>TRPC test</label>
-        <TrpcTest />
       </div>
     </div>
   </div>
