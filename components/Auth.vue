@@ -29,7 +29,7 @@ const handleLogin = async () => {
         loading.value = true
         const { error } = await supabase.auth.signInWithPassword({ email: email.value, password: password.value, directTo: `${useRuntimeConfig().public.baseUrl}/confirm` })
         if (error) throw error
-        reloadNuxtApp()
+        navigateTo("/");
     } catch (error) {
         alert(error.message)
     } finally {
@@ -45,9 +45,8 @@ const handleRegister = async () => {
             password: password.value,
             directTo: `${useRuntimeConfig().public.baseUrl}/confirm`
         })
-        console.log("Registering!");
         if (error) throw error
-        reloadNuxtApp()
+        navigateTo("/");
     } catch (error) {
         alert(error.message)
     } finally {

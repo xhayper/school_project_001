@@ -5,8 +5,7 @@ const user = useSupabaseUser();
 <template>
   <div>
     <NuxtLoadingIndicator />
-    <Auth v-if="!user" />
-    <NuxtLayout v-else>
+    <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
   </div>
