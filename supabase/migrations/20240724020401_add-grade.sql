@@ -1,4 +1,4 @@
-create type grade_subject as ENUM ('ENGLISH');
+create type grade_subject as ENUM ('MATH', 'BIOLOGY', 'ENGLISH', 'PHYSICS', 'CHEMISTRY', 'HISTORY', 'ECONOMICS');
 
 create table public.grade (
     id uuid not null default uuid_generate_v4(),

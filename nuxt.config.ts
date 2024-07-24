@@ -2,15 +2,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   css: ['@/assets/main.css'],
-  modules: [
-    '@nuxtjs/supabase',
-    '@nuxtjs/tailwindcss',
-  ],
+  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss'],
   supabase: {
     redirectOptions: {
       login: '/login',
-      callback: '/confirm',
-    },
+      callback: '/confirm'
+    }
   },
   devtools: {
     enabled: true,
@@ -19,11 +16,9 @@ export default defineNuxtConfig({
     }
   },
   build: {
-    transpile: [
-      'trpc-nuxt'
-    ]
+    transpile: ['trpc-nuxt']
   },
   typescript: {
     shim: false
   }
-})
+});
