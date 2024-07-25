@@ -1,11 +1,12 @@
 <script setup lang="tsx">
 import { Chart as ChartJS, RadarController, LineElement, PointElement, RadialLinearScale, Filler } from 'chart.js';
+import type { Database } from '~/types/supabase';
 import { Radar } from 'vue-chartjs';
 
 ChartJS.register(RadarController, LineElement, PointElement, RadialLinearScale, Filler);
 
 const props = defineProps<{
-  data: { subject: string; grade: number }[];
+  data: Database['public']['Tables']['grade']['Row'][];
 }>();
 
 const subjectData = props.data.reduce((acc: any, { subject, grade }: { [key: string]: any }) => {

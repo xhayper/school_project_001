@@ -1,34 +1,57 @@
 <script setup lang="ts">
+import type { Database } from '~/types/supabase';
+
 const { $client } = useNuxtApp();
 
 const route = useRoute();
 
+let userExists = ref(false);
+let canView = ref(false);
+
 const parsedNumber = parseInt(route.params.studentId as string);
 
-if (Number.isNaN(parsedNumber)) alert('Invalid student number!');
+const gradeRef = ref<Database['public']['Tables']['grade']['Row'][] | null>(null);
+const studentInfoRef = ref<Database['public']['Tables']['user_data']['Row'] | null>(null);
 
-const grade = (
-  await $client.get_grade.useQuery({
-    studentId: parsedNumber
-  })
-).data.value;
+if (!Number.isNaN(parsedNumber)) {
+  const isStudentExists = await $client.user.exists.query(parsedNumber);
+  userExists.value = isStudentExists != null && isStudentExists;
+}
 
-const studentInfo = (
-  await $client.get_info.useQuery({
+if (userExists) {
+  const infoQueryResult = await $client.user.get.query({
     studentId: parsedNumber
-  })
-).data.value;
+  });
+
+  canView.value = !infoQueryResult.error;
+
+  if (canView) {
+    studentInfoRef.value = infoQueryResult.value as any;
+    gradeRef.value = (
+      await $client.grade.get.query({
+        studentId: parsedNumber
+      })
+    ).value as any;
+
+    console.log(gradeRef.value);
+  }
+}
 </script>
 
 <template>
   <div>
     <div v-if="Number.isNaN(parsedNumber)">Invalid student number!</div>
+    <div v-else-if="!userExists">Student not found!</div>
+    <div v-else-if="!canView">You can't view this person's grade!</div>
     <div v-else>
       <div>
-        <GradeRadarChart :data="grade as any" />
+        <GradeRadarChart :data="gradeRef!" />
       </div>
 
-      <div>Student name: {{ (studentInfo as any).name }}</div>
+      <div>Student name: {{ studentInfoRef!.name }}</div>
+    </div>
+    <div>
+      <NuxtLink to="/">Back</NuxtLink>
     </div>
   </div>
 </template>
