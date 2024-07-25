@@ -16,6 +16,7 @@
     "@trpc/client": "^10.45.2",
     "@trpc/server": "^10.45.2",
     "chart.js": "^4.4.3",
+    "csv-parse": "^5.5.6",
     "nuxt": "^3.12.4",
     "sass": "^1.77.8",
     "trpc-nuxt": "^0.10.22",

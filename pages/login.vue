@@ -22,29 +22,13 @@ const handleLogin = async () => {
     loading.value = false;
   }
 };
-
-const handleRegister = async () => {
-  try {
-    loading.value = true;
-    const { error } = await supabase.auth.signUp({
-      email: email.value,
-      password: password.value
-    });
-    if (error) throw error;
-    navigateTo('/');
-  } catch (error: any) {
-    alert(error.message);
-  } finally {
-    loading.value = false;
-  }
-};
 </script>
 
 <template>
   <div class="row flex flex-center">
     <div class="col-6 form-widget">
       <h1 class="header">Hello! Please sign in!</h1>
-      <div>
+      <form>
         <label for="email">Email</label>
         <input id="email" type="email" v-model="email" />
 
@@ -54,10 +38,7 @@ const handleRegister = async () => {
         <button type="button" :disabled="loading" @click="handleLogin">
           {{ loading ? 'Loading' : 'Sign in' }}
         </button>
-        <button type="button" :disabled="loading" @click="handleRegister">
-          {{ loading ? 'Loading' : 'Register' }}
-        </button>
-      </div>
+      </form>
     </div>
   </div>
 </template>
