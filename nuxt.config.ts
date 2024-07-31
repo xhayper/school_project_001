@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  css: ['@/assets/main.scss'],
-  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss'],
+  css: ['@/assets/css/tailwind.scss', '@/assets/css/main.scss'],
+  modules: ['@nuxt/fonts', '@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxtjs/supabase'],
   supabase: {
     redirectOptions: {
       login: '/login',

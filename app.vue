@@ -1,5 +1,9 @@
+<script setup lang="ts">
+import { cn } from './lib/utils';
+</script>
+
 <template>
-  <div>
+  <div :class="cn('antialiased')">
     <NuxtLoadingIndicator />
     <NuxtLayout>
       <NuxtPage />
