@@ -27,6 +27,8 @@ const studentInfoRef = ref<Database['public']['Tables']['user_data']['Row'] | nu
 
 const toPascalCase = (str: string) => str.replace(/(\w)(\w*)/g, (_, g1, g2) => g1.toUpperCase() + g2.toLowerCase());
 
+const firstLetterOfEachWord = (str: string) => str.split(" ").map((word) => word[0]).join("");
+
 const gradeList: {
   [key in Database['public']['Enums']['grade_subject']]: number;
 } = {
@@ -168,7 +170,7 @@ if (parsedNumber == null || Number.isNaN(parsedNumber)) {
       if (gradeRef.value == null) {
         gradeRef.value = [];
       }
-    
+
       gradeRef.value.forEach((grade) => {
         gradeList[grade.subject] = grade.grade;
       });
@@ -188,7 +190,7 @@ if (parsedNumber == null || Number.isNaN(parsedNumber)) {
         <div class="flex items-center gap-4">
           <Avatar class="h-12 w-12">
             <AvatarImage src="/placeholder-user.jpg" />
-            <AvatarFallback>JS</AvatarFallback>
+            <AvatarFallback>{{ firstLetterOfEachWord(studentInfoRef!.name).toUpperCase()  }}</AvatarFallback>
           </Avatar>
           <div>
             <h1 class="text-2xl font-bold">{{ studentInfoRef!.name }}</h1>
