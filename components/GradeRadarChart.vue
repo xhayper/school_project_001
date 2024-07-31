@@ -41,7 +41,5 @@ const options = {
 </script>
 
 <template>
-  <div style="width: 500px">
-    <Radar :data="data as any" :options="options" />
-  </div>
+  <Radar :data="data as any" :options="options" />
 </template>

@@ -1,5 +1,17 @@
-<script setup lang="ts">
+<script setup lang="tsx">
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/ALJfRcwMhcU
+ * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
+ */
+
+import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from '@/components/ui/table';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import type { Database } from '~/types/supabase';
+import { Button } from '@/components/ui/button';
+
+//////////////////////////////////////
 
 const { $client } = useNuxtApp();
 
@@ -24,7 +36,7 @@ const gradeList: {
   PHYSICS: 0,
   HISTORY: 0,
   ECONOMICS: 0,
-  CHEMISTRY: 100
+  CHEMISTRY: 0
 };
 
 type HOLLAND_CODE = 'Realistic' | 'Investigative' | 'Artistic' | 'Social' | 'Enterprising' | 'Conventional';
@@ -90,6 +102,8 @@ const jobList: {
   Conventional: []
 };
 
+//////////////////////////////////////
+
 const GPA = computed(
   () => (Object.values(gradeList).reduce((acc, grade) => acc + grade, 0) / (100 * Object.keys(gradeList).length)) * 4
 );
@@ -107,105 +121,170 @@ const SubjectGPA = computed(() =>
 const averageHollandCode = computed(() => {
   const gpa = GPA.value;
   return Object.entries(averageGPAPerHollandCode)
-    .filter(([_, { minGPA, maxGPA }]) => gpa >= minGPA && gpa <= maxGPA)
+    .filter(([_, { minGPA }]) => gpa >= minGPA)
     .map(([name, { minGPA, maxGPA }]) => ({ name, minGPA, maxGPA }));
 });
 
 const availableJobs = computed(() => {
-  return Object.entries(jobList).reduce(
-    (acc, [hollandCode, jobs]) => {
-      const availableJobs = jobs.filter((job) => {
-        return job.scores.every((score) => {
-          return gradeList[score.subject] >= score.min;
-        });
+  const passedJob: string[] = [];
+
+  Object.values(jobList).forEach((jobs) => {
+    jobs.forEach((job) => {
+      const scores = job.scores;
+      const passed = scores.every((score) => {
+        return gradeList[score.subject] >= score.min;
       });
 
-      if (availableJobs.length > 0) {
-        (acc as any)[hollandCode] = availableJobs.map((job) => job.name);
+      if (passed) {
+        passedJob.push(job.name);
       }
-
-      return acc;
-    },
-    {} as { [key in HOLLAND_CODE]: string[] }
-  );
-});
-
-if (!Number.isNaN(parsedNumber)) {
-  const isStudentExists = await $client.user.exists.query(parsedNumber);
-  userExists.value = isStudentExists != null && isStudentExists;
-}
-
-if (userExists) {
-  const infoQueryResult = await $client.user.get.query({
-    studentId: parsedNumber
+    });
   });
 
-  canView.value = !infoQueryResult.error;
+  return passedJob;
+});
 
-  if (canView) {
-    studentInfoRef.value = infoQueryResult.value as any;
-    gradeRef.value = (
-      await $client.grade.get.query({
-        studentId: parsedNumber
-      })
-    ).value as any;
+if (parsedNumber == null || Number.isNaN(parsedNumber)) {
+  navigateTo('/no-access');
+} else {
+  const isStudentExists = await $client.user.exists.query(parsedNumber);
+  userExists.value = isStudentExists != null && isStudentExists;
 
-    if (gradeRef.value == null) {
-      gradeRef.value = [];
-    }
-
-    gradeRef.value.forEach((grade) => {
-      gradeList[grade.subject] = grade.grade;
+  if (userExists) {
+    const infoQueryResult = await $client.user.get.query({
+      studentId: parsedNumber
     });
+
+    canView.value = !infoQueryResult.error;
+
+    if (canView) {
+      studentInfoRef.value = infoQueryResult.value as any;
+      gradeRef.value = (
+        await $client.grade.get.query({
+          studentId: parsedNumber
+        })
+      ).value as any;
+
+      if (gradeRef.value == null) {
+        gradeRef.value = [];
+      }
+
+      gradeRef.value.forEach((grade) => {
+        gradeList[grade.subject] = grade.grade;
+      });
+    } else {
+      navigateTo('/no-access');
+    }
+  } else {
+    navigateTo('/no-access');
   }
 }
 </script>
 
 <template>
-  <div>
-    <div v-if="Number.isNaN(parsedNumber)">Invalid student number!</div>
-    <div v-else-if="!userExists">Student not found!</div>
-    <div v-else-if="!canView">You can't view this person's grade!</div>
-    <div v-else>
-      <div>
-        <GradeRadarChart :data="gradeRef!" />
+  <ClientOnly>
+    <div class="grid gap-6 px-4 py-8 md:px-6 md:py-12 max-w-6xl mx-auto">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <Avatar class="h-12 w-12">
+            <AvatarImage src="/placeholder-user.jpg" />
+            <AvatarFallback>JS</AvatarFallback>
+          </Avatar>
+          <div>
+            <h1 class="text-2xl font-bold">{{ studentInfoRef!.name }}</h1>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <Button variant="outline" @click.prevent="navigateTo('/')">
+            <ArrowLeftIcon class="h-4 w-4" />
+            Back
+          </Button>
+        </div>
       </div>
-
-      <div>Student name: {{ studentInfoRef!.name }}</div>
-      <br />
-      <div>Overall GPA: {{ Math.round(GPA * 100) / 100 }}</div>
-      <br />
-      <div>Subject GPA:</div>
-      <ul>
-        <li v-for="[subject, gpa] in Object.entries(SubjectGPA)" :key="subject">
-          {{ toPascalCase(subject) }}: {{ Math.round(gpa * 100) / 100 }}
-        </li>
-      </ul>
-      <br />
-
-      <div v-if="averageHollandCode.length > 0">
-        <div>You are in the average range for these Hollan Code</div>
-        <br />
-        <ul>
-          <li v-for="hollandCode in averageHollandCode" :key="hollandCode.name">
-            <div>{{ hollandCode.name }}</div>
-            <div>GPA: {{ hollandCode.minGPA }} - {{ hollandCode.maxGPA }}</div>
-            <div v-if="(availableJobs as any)[hollandCode.name] && (availableJobs as any)[hollandCode.name].length > 0">
-              <br />
-              <div>Job that fits you in these categoires:</div>
-              <ul>
-                <li v-for="job in (availableJobs as any)[hollandCode.name]" :key="job">
-                  {{ job }}
-                </li>
-              </ul>
+      <div class="grid md:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Overall Performance</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div class="aspect-square">
+              <GradeRadarChart :data="gradeRef!" style="width: 32rem; height: 32rem" />
             </div>
-            <br />
-          </li>
-        </ul>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Subject GPAs</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Subject</TableHead>
+                  <TableHead class="text-right">GPA</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow v-for="[subject, gpa] in Object.entries(SubjectGPA)" :key="subject">
+                  <TableCell>{{ toPascalCase(subject) }}</TableCell>
+                  <TableCell class="text-right">{{ Math.round(gpa * 100) / 100 }}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
       </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Overall GPA</CardTitle>
+          <CardDescription>Your cumulative grade point average.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div class="flex items-center justify-center gap-2 text-4xl font-bold">
+            {{ Math.round(GPA * 100) / 100 }}
+          </div>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Hollen Codes</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Code</TableHead>
+                <TableHead class="text-right">Average Range</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow v-for="code in averageHollandCode" :key="code.name">
+                <TableCell>{{ code.name }}</TableCell>
+                <TableCell class="text-right">{{ code.minGPA }} - {{ code.maxGPA }}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Jobs</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Job</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              <TableRow v-for="job in availableJobs" :key="job">
+                <TableCell>{{ job }}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
     </div>
-    <div>
-      <NuxtLink to="/">Back</NuxtLink>
-    </div>
-  </div>
+  </ClientOnly>
 </template>
