@@ -90,20 +90,19 @@ const jobList: {
   Conventional: []
 };
 
-const GPA = computed(() => {
-  const totalGrade = Object.values(gradeList).reduce((acc, grade) => acc + grade, 0);
-  return (totalGrade / (100 * Object.keys(gradeList).length)) * 4;
-});
+const GPA = computed(
+  () => (Object.values(gradeList).reduce((acc, grade) => acc + grade, 0) / (100 * Object.keys(gradeList).length)) * 4
+);
 
-const SubjectGPA = computed(() => {
-  return Object.entries(gradeList).reduce(
+const SubjectGPA = computed(() =>
+  Object.entries(gradeList).reduce(
     (acc, [subject, grade]) => {
       (acc as any)[subject] = (grade / 100) * 4;
       return acc;
     },
     {} as { [key in Database['public']['Enums']['grade_subject']]: number }
-  );
-});
+  )
+);
 
 const averageHollandCode = computed(() => {
   const gpa = GPA.value;
