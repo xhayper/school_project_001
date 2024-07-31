@@ -157,7 +157,7 @@ if (parsedNumber == null || Number.isNaN(parsedNumber)) {
 
     canView.value = !infoQueryResult.error;
 
-    if (canView) {
+    if (canView.value) {
       studentInfoRef.value = infoQueryResult.value as any;
       gradeRef.value = (
         await $client.grade.get.query({
@@ -168,7 +168,7 @@ if (parsedNumber == null || Number.isNaN(parsedNumber)) {
       if (gradeRef.value == null) {
         gradeRef.value = [];
       }
-
+    
       gradeRef.value.forEach((grade) => {
         gradeList[grade.subject] = grade.grade;
       });
