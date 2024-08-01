@@ -1,5 +1,14 @@
 <script setup lang="tsx">
-import { Chart as ChartJS, RadarController, LineElement, PointElement, RadialLinearScale, Filler, type ChartOptions, type ChartData } from 'chart.js';
+import {
+  Chart as ChartJS,
+  RadarController,
+  LineElement,
+  PointElement,
+  RadialLinearScale,
+  Filler,
+  type ChartOptions,
+  type ChartData
+} from 'chart.js';
 import type { Database } from '~/types/supabase';
 import { Radar } from 'vue-chartjs';
 
@@ -23,16 +32,16 @@ const data = {
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgb(255, 99, 132)',
       pointBorderColor: 'rgb(255, 99, 132)',
-      pointBackgroundColor: '#ffffff',
+      pointBackgroundColor: '#ffffff'
     }
   ]
-} satisfies ChartData<"radar">;
+} satisfies ChartData<'radar'>;
 
 const options = {
   scales: {
     r: {
       grid: {
-        color: "rgba(255, 255, 255, .2)"
+        color: 'rgba(255, 255, 255, .2)'
       },
       pointLabels: {
         color: 'white',
@@ -44,9 +53,9 @@ const options = {
       },
       suggestedMin: 0,
       suggestedMax: 100
-    },
+    }
   }
-} satisfies ChartOptions<"radar">;
+} satisfies ChartOptions<'radar'>;
 </script>
 
 <template>
