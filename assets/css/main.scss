@@ -2,6 +2,6 @@ body {
   font-family: 'Work Sans', 'Chivo', sans-serif;
 }
 
-input[type=file]::file-selector-button {
-  @apply text-black dark:text-white
+input[type='file']::file-selector-button {
+  @apply text-black dark:text-white;
 }

@@ -27,7 +27,11 @@ const studentInfoRef = ref<Database['public']['Tables']['user_data']['Row'] | nu
 
 const toPascalCase = (str: string) => str.replace(/(\w)(\w*)/g, (_, g1, g2) => g1.toUpperCase() + g2.toLowerCase());
 
-const firstLetterOfEachWord = (str: string) => str.split(" ").map((word) => word[0]).join("");
+const firstLetterOfEachWord = (str: string) =>
+  str
+    .split(' ')
+    .map((word) => word[0])
+    .join('');
 
 const gradeList: {
   [key in Database['public']['Enums']['grade_subject']]: number;

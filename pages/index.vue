@@ -106,7 +106,7 @@ const gradeSubmit = async () => {
                   accept=".csv"
                   ref="fileInputRef"
                   @input="fileInputRef = $event.target.files"
-                 />
+                />
               </div>
               <Button variant="outline" type="submit" class="w-full">Upload File</Button>
             </form>
