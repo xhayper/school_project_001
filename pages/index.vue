@@ -44,7 +44,6 @@ const gradeSubmit = async () => {
     <div class="space-y-6">
       <div class="text-center space-y-6">
         <h1 class="text-3xl font-bold">Account Managment</h1>
-        <p class="text-muted-foreground">Manage your account here.</p>
         <ClientOnly>
           <form
             class="space-y-4"
@@ -54,7 +53,7 @@ const gradeSubmit = async () => {
             <Button variant="outline" type="submit" class="w-full"> View your grade </Button>
           </form>
         </ClientOnly>
-        <form class="space-y-4" @submit.prevent="navigateTo(`/logout`)">
+        <form class="space-y-6" @submit.prevent="navigateTo(`/logout`)">
           <Button variant="outline" type="submit" class="w-full"> Logout </Button>
         </form>
       </div>
@@ -107,7 +106,7 @@ const gradeSubmit = async () => {
                   accept=".csv"
                   ref="fileInputRef"
                   @input="fileInputRef = $event.target.files"
-                />
+                 />
               </div>
               <Button variant="outline" type="submit" class="w-full">Upload File</Button>
             </form>
