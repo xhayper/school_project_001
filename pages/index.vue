@@ -44,11 +44,11 @@ const gradeSubmit = async () => {
     <div class="space-y-6">
       <div class="text-center space-y-6">
         <h1 class="text-3xl font-bold">Account Managment</h1>
-        <div class="space-y-2">
+        <!-- <div class="space-y-2">
           <NuxtLink to="/manage">
             <Button variant="outline" type="submit" class="w-full"> Manage account </Button>
           </NuxtLink>
-        </div>
+        </div> -->
         <ClientOnly>
           <div class="space-y-2"
             v-if="currentUserDataRef && !currentUserDataRef.error && currentUserDataRef.value.role === 'STUDENT'">

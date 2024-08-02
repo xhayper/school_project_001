@@ -43,7 +43,7 @@ const handleLogin = async () => {
       <CardContent class="space-y-4">
         <div class="space-y-2">
           <Label for="email">Email</Label>
-          <Input id="email" type="email" placeholder="me@example.com" required v-model="email" />
+          <Input id="email" type="email" placeholder="example@tkt.ac.th" required v-model="email" />
         </div>
         <div class="space-y-2">
           <Label for="password">Password</Label>
