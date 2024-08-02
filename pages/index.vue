@@ -44,6 +44,9 @@ const gradeSubmit = async () => {
     <div class="space-y-6">
       <div class="text-center space-y-6">
         <h1 class="text-3xl font-bold">Account Managment</h1>
+        <NuxtLink to="/manage">
+          <Button variant="outline" type="submit" class="w-full"> Manage account </Button>
+        </NuxtLink>
         <ClientOnly>
           <form
             class="space-y-4"
@@ -53,9 +56,9 @@ const gradeSubmit = async () => {
             <Button variant="outline" type="submit" class="w-full"> View your grade </Button>
           </form>
         </ClientOnly>
-        <form class="space-y-6" @submit.prevent="navigateTo(`/logout`)">
+        <NuxtLink to="/logout">
           <Button variant="outline" type="submit" class="w-full"> Logout </Button>
-        </form>
+        </NuxtLink>
       </div>
       <ClientOnly v-if="currentUserDataRef && !currentUserDataRef.error && currentUserDataRef.value.role !== 'STUDENT'">
         <div class="text-center">

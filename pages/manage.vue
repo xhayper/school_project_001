@@ -10,6 +10,11 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
+import { useNuxt } from 'nuxt/kit';
+
+const { $client } = useNuxtApp();
+
+const userInfo = await $client.user.get.query();
 </script>
 
 <template>
@@ -38,7 +43,7 @@ import { Input } from '@/components/ui/input';
             </div>
             <div class="grid gap-2">
               <Label for="name">Name</Label>
-              <Input id="name" type="text" defaultValue="John Doe" />
+              <Input id="name" type="text" v-model="userInfo.value.name" />
             </div>
             <div class="grid gap-2">
               <Label for="avatar">Avatar</Label>
