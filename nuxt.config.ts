@@ -3,6 +3,16 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   css: ['@/assets/css/tailwind.scss', '@/assets/css/main.scss'],
   modules: ['@nuxt/fonts', '@nuxtjs/tailwindcss', 'shadcn-nuxt', '@nuxtjs/supabase'],
+  app: {
+    head: {
+      title: 'Career Analyzer',
+      meta: [
+        { name: "description", content: "Career Analyzer" },
+        { name: "og:title", content: "Career Analyzer" },
+        { name: "theme-color", content: "#0f0f10" },
+      ]
+    }
+  },
   supabase: {
     redirectOptions: {
       login: '/login',
