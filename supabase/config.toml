@@ -1,6 +1,6 @@
 # A string used to distinguish different Supabase projects on the same host. Defaults to the
 # working directory name when running `supabase init`.
-project_id = "school_project"
+project_id = "school_project_001"
 
 [api]
 enabled = true
@@ -68,7 +68,7 @@ port = 54324
 [storage]
 enabled = true
 # The maximum file size allowed (e.g. "5MB", "500KB").
-file_size_limit = "5MiB"
+file_size_limit = "50MiB"
 
 [storage.image_transformation]
 enabled = true
@@ -76,7 +76,7 @@ enabled = true
 # Uncomment to configure local storage buckets
 [storage.buckets.images]
 public = false
-file_size_limit = "5MiB"
+file_size_limit = "50MiB"
 allowed_mime_types = ["image/png", "image/jpeg"]
 
 [auth]
