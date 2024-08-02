@@ -44,21 +44,24 @@ const gradeSubmit = async () => {
     <div class="space-y-6">
       <div class="text-center space-y-6">
         <h1 class="text-3xl font-bold">Account Managment</h1>
-        <NuxtLink to="/manage">
-          <Button variant="outline" type="submit" class="w-full"> Manage account </Button>
-        </NuxtLink>
+        <div class="space-y-2">
+          <NuxtLink to="/manage">
+            <Button variant="outline" type="submit" class="w-full"> Manage account </Button>
+          </NuxtLink>
+        </div>
         <ClientOnly>
-          <form
-            class="space-y-4"
-            @submit.prevent="navigateTo('/grade/' + currentUserDataRef.value!.school_id)"
-            v-if="currentUserDataRef && !currentUserDataRef.error && currentUserDataRef.value.role === 'STUDENT'"
-          >
-            <Button variant="outline" type="submit" class="w-full"> View your grade </Button>
-          </form>
+          <div class="space-y-2"
+            v-if="currentUserDataRef && !currentUserDataRef.error && currentUserDataRef.value.role === 'STUDENT'">
+            <NuxtLink :to="`/grade/${currentUserDataRef.value!.school_id}`">
+              <Button variant="outline" type="submit" class="w-full"> View your grade </Button>
+            </NuxtLink>
+          </div>
         </ClientOnly>
-        <NuxtLink to="/logout">
-          <Button variant="outline" type="submit" class="w-full"> Logout </Button>
-        </NuxtLink>
+        <div class="space-y-2">
+          <NuxtLink to="/logout">
+            <Button variant="outline" type="submit" class="w-full space-y-4"> Logout </Button>
+          </NuxtLink>
+        </div>
       </div>
       <ClientOnly v-if="currentUserDataRef && !currentUserDataRef.error && currentUserDataRef.value.role !== 'STUDENT'">
         <div class="text-center">
@@ -75,10 +78,8 @@ const gradeSubmit = async () => {
       </ClientOnly>
       <ClientOnly>
         <div v-if="!isLoading">
-          <div
-            class="space-y-4"
-            v-if="currentUserDataRef && !currentUserDataRef.error && currentUserDataRef.value.role !== 'STUDENT'"
-          >
+          <div class="space-y-4"
+            v-if="currentUserDataRef && !currentUserDataRef.error && currentUserDataRef.value.role !== 'STUDENT'">
             <div class="text-center">
               <h2 class="text-2xl font-bold">Upload Grade File</h2>
               <p class="text-muted-foreground">Upload a file to update the student's grades.</p>
@@ -86,11 +87,11 @@ const gradeSubmit = async () => {
             <form class="space-y-4" @submit.prevent="gradeSubmit">
               <div class="space-y-2">
                 <Label for="subject">Subject</Label>
-                <Select id="subject">
+                <Select id="subject" v-model="subjectRef">
                   <SelectTrigger>
                     <SelectValue placeholder="Select a subject" />
                   </SelectTrigger>
-                  <SelectContent v-model="subjectRef">
+                  <SelectContent>
                     <SelectItem value="MATH">Math</SelectItem>
                     <SelectItem value="BIOLOGY">Biology</SelectItem>
                     <SelectItem value="ENGLISH">English</SelectItem>
@@ -103,13 +104,8 @@ const gradeSubmit = async () => {
               </div>
               <div class="space-y-2">
                 <Label for="grade-file">Grade File</Label>
-                <Input
-                  id="grade-file"
-                  type="file"
-                  accept=".csv"
-                  ref="fileInputRef"
-                  @input="fileInputRef = $event.target.files"
-                />
+                <Input id="grade-file" type="file" accept=".csv" ref="fileInputRef"
+                  @input="fileInputRef = $event.target.files" />
               </div>
               <Button variant="outline" type="submit" class="w-full">Upload File</Button>
             </form>
