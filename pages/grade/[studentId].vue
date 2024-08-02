@@ -251,7 +251,7 @@ if (parsedNumber == null || Number.isNaN(parsedNumber)) {
           </div>
         </CardContent>
       </Card>
-      <Card>
+      <Card v-if="averageHollandCode.length > 0">
         <CardHeader>
           <CardTitle>Hollen Codes</CardTitle>
         </CardHeader>
@@ -272,7 +272,7 @@ if (parsedNumber == null || Number.isNaN(parsedNumber)) {
           </Table>
         </CardContent>
       </Card>
-      <Card>
+      <Card v-if="availableJobs.length > 0">
         <CardHeader>
           <CardTitle>Jobs</CardTitle>
         </CardHeader>
