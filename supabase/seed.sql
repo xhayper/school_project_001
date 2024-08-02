@@ -29,6 +29,7 @@ INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('30df170d-7c36-4aff-b5a1-52ead69a9a83', 'e02ad86c-d5c1-403c-856b-b070016d4cb7', 'MATH', 59, NULL, '2024-08-02 11:11:50.898732+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('ece01db1-0f4f-41a9-96bd-6342c35a1e82', '01ec0f6a-0bef-4cba-9829-513d1fb7bb23', 'MATH', 13, NULL, '2024-08-02 11:11:50.915179+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('bc601ab1-1568-454c-b4c3-33a0f49047be', 'c90de060-a79e-4748-b666-3f8476cee5f0', 'MATH', 56, NULL, '2024-08-02 11:11:50.909174+00');
+INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('ee6de593-c09c-455c-a2d7-893ff9b2ba77', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'MATH', 100, NULL, '2024-08-02 11:11:50.770099+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('a157c529-5f46-4900-8f7d-b1fee44dbcc9', '1538fb17-63e6-44ac-ba3d-095a0e647db3', 'BIOLOGY', 98, NULL, '2024-08-02 11:13:56.326274+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('1fb4531b-155f-419b-af42-9ef5e8488467', '01ec0f6a-0bef-4cba-9829-513d1fb7bb23', 'BIOLOGY', 26, NULL, '2024-08-02 11:13:56.273115+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('0ca6388c-68ad-42c7-b95b-c1eddcd42173', 'ad4cff79-4f7a-40d3-b3dd-792c39d2a7b8', 'BIOLOGY', 100, NULL, '2024-08-02 11:13:56.365768+00');
@@ -38,6 +39,7 @@ INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('dc066a2d-da58-4ef8-b106-a7874be1618a', '4710d49f-b8a6-4b5e-a990-c7a25c762d59', 'BIOLOGY', 89, NULL, '2024-08-02 11:13:56.43114+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('36e8e4ca-019b-4322-bdc3-4dd59d1215a6', 'e02ad86c-d5c1-403c-856b-b070016d4cb7', 'BIOLOGY', 69, NULL, '2024-08-02 11:13:56.421538+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('18e9ccdd-0aee-4574-b258-3612877896c6', '6c0297b4-a6c2-4c29-90c6-b1a2f808fe3a', 'BIOLOGY', 71, NULL, '2024-08-02 11:13:56.385362+00');
+INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('f9a4b573-b4e5-4f5f-8805-acef13cf0ee4', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'BIOLOGY', 100, NULL, '2024-08-02 11:13:56.284736+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('e1d3eb93-edb6-4eec-b733-3fb7d8c337fa', '0bc340e6-f066-4b34-9e40-80f0f625b977', 'ENGLISH', 65, NULL, '2024-08-02 11:14:17.815686+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('0430c9ed-073e-4276-9250-c843dd9a0887', 'e02ad86c-d5c1-403c-856b-b070016d4cb7', 'ENGLISH', 18, NULL, '2024-08-02 11:14:17.821793+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('ff264eef-c9d3-4591-9c4c-52435ca0cb32', 'ad4cff79-4f7a-40d3-b3dd-792c39d2a7b8', 'ENGLISH', 69, NULL, '2024-08-02 11:14:17.974138+00');
@@ -47,6 +49,7 @@ INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('1f899f67-6145-4cc8-8d5d-0b667e5d3e6d', 'd19fd549-a3dc-4096-a4cb-981cc0e4c6b1', 'ENGLISH', 57, NULL, '2024-08-02 11:14:18.226289+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('65be918f-1ab7-4809-8c88-facd36ed2fe5', 'c90de060-a79e-4748-b666-3f8476cee5f0', 'ENGLISH', 0, NULL, '2024-08-02 11:14:18.233662+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('0d131efe-4112-49d2-8b2d-89d67e413371', '6c0297b4-a6c2-4c29-90c6-b1a2f808fe3a', 'ENGLISH', 17, NULL, '2024-08-02 11:14:18.234075+00');
+INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('61d67369-01f1-41c7-a379-3e431132cf65', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'ENGLISH', 100, NULL, '2024-08-02 11:14:17.981903+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('8f0b4cb3-a766-4976-bd91-def95f295974', '01ec0f6a-0bef-4cba-9829-513d1fb7bb23', 'PHYSICS', 95, NULL, '2024-08-02 11:14:27.819333+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('59efcf56-5cdf-49e6-a882-50a155768151', '6c0297b4-a6c2-4c29-90c6-b1a2f808fe3a', 'PHYSICS', 68, NULL, '2024-08-02 11:14:27.827551+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('6919ef9d-63d2-4171-8633-83010727bc16', 'c90de060-a79e-4748-b666-3f8476cee5f0', 'PHYSICS', 38, NULL, '2024-08-02 11:14:27.836498+00');
@@ -56,6 +59,7 @@ INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('05d0cd9b-6757-4030-adaa-a20cf70f869a', '4710d49f-b8a6-4b5e-a990-c7a25c762d59', 'PHYSICS', 34, NULL, '2024-08-02 11:14:27.987595+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('39198a79-533d-4727-ac30-29c9a6f5dc6d', 'e02ad86c-d5c1-403c-856b-b070016d4cb7', 'PHYSICS', 75, NULL, '2024-08-02 11:14:28.025255+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('805c9f66-8052-4b89-8842-c5cc708d0262', 'ad4cff79-4f7a-40d3-b3dd-792c39d2a7b8', 'PHYSICS', 37, NULL, '2024-08-02 11:14:28.031379+00');
+INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('3cbdad64-41fb-421f-9d4c-2c0f6fb8fa25', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'PHYSICS', 100, NULL, '2024-08-02 11:14:28.020153+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('3270f5df-834d-498f-b85d-2340c9f30c8b', 'c90de060-a79e-4748-b666-3f8476cee5f0', 'ECONOMICS', 40, NULL, '2024-08-02 11:15:16.636055+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('8b7015b3-934b-44e7-9d39-07877f03310b', '6c0297b4-a6c2-4c29-90c6-b1a2f808fe3a', 'ECONOMICS', 42, NULL, '2024-08-02 11:15:16.738002+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('14b068cf-6f79-4506-af24-513b5713975d', 'd19fd549-a3dc-4096-a4cb-981cc0e4c6b1', 'ECONOMICS', 73, NULL, '2024-08-02 11:15:16.40623+00');
@@ -63,8 +67,9 @@ INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('acbbad08-1d3d-4ed9-909b-e6490fd7d706', '1538fb17-63e6-44ac-ba3d-095a0e647db3', 'ECONOMICS', 44, NULL, '2024-08-02 11:15:16.370376+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('44cc281d-2a24-4291-992e-8c6a5eb9173e', 'e02ad86c-d5c1-403c-856b-b070016d4cb7', 'ECONOMICS', 56, NULL, '2024-08-02 11:15:16.229094+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('0806fb8c-5168-4e50-b2cf-c576f5fa84b0', '4710d49f-b8a6-4b5e-a990-c7a25c762d59', 'ECONOMICS', 95, NULL, '2024-08-02 11:15:16.725614+00');
-INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('f9a4b573-b4e5-4f5f-8805-acef13cf0ee4', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'BIOLOGY', 100, NULL, '2024-08-02 11:13:56.284736+00');
-INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('ee6de593-c09c-455c-a2d7-893ff9b2ba77', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'MATH', 100, NULL, '2024-08-02 11:11:50.770099+00');
+INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('e76e9ee0-ef35-4e0c-b4af-8e70aa181621', 'ad4cff79-4f7a-40d3-b3dd-792c39d2a7b8', 'ECONOMICS', 95, NULL, '2024-08-02 11:15:16.628885+00');
+INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('90f568ce-b98f-4fa7-8a6f-908b230dcf02', '01ec0f6a-0bef-4cba-9829-513d1fb7bb23', 'ECONOMICS', 79, NULL, '2024-08-02 11:15:16.398897+00');
+INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('2300d68e-c153-4cde-ab89-5b21c6d2330c', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'ECONOMICS', 100, NULL, '2024-08-02 11:15:16.623622+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('71ee7cbf-580c-4ecf-be24-a1981b8cb0b1', 'ad4cff79-4f7a-40d3-b3dd-792c39d2a7b8', 'CHEMISTRY', 34, NULL, '2024-08-02 11:14:34.734579+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('9a5f32da-dbd9-4980-a771-ea03dc95a613', '6c0297b4-a6c2-4c29-90c6-b1a2f808fe3a', 'CHEMISTRY', 30, NULL, '2024-08-02 11:14:34.735608+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('096b0992-bbe8-4656-814c-bfc89be1bc31', '0bc340e6-f066-4b34-9e40-80f0f625b977', 'CHEMISTRY', 25, NULL, '2024-08-02 11:14:34.748903+00');
@@ -74,6 +79,7 @@ INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('12859843-19b2-4fd7-a418-0dd0e9ec52f4', 'd19fd549-a3dc-4096-a4cb-981cc0e4c6b1', 'CHEMISTRY', 93, NULL, '2024-08-02 11:14:34.854105+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('2f48919f-0675-4356-aa7b-1a36168c3767', '01ec0f6a-0bef-4cba-9829-513d1fb7bb23', 'CHEMISTRY', 79, NULL, '2024-08-02 11:14:34.861508+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('e6dc7471-754f-411e-8bac-26dcf8b5d95c', '1538fb17-63e6-44ac-ba3d-095a0e647db3', 'CHEMISTRY', 4, NULL, '2024-08-02 11:14:34.885065+00');
+INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('10c16dff-cd60-4b35-baac-b741935db322', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'CHEMISTRY', 100, NULL, '2024-08-02 11:14:34.876957+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('ddc2864b-b21a-4d9a-b344-9e0e12df619b', 'd19fd549-a3dc-4096-a4cb-981cc0e4c6b1', 'HISTORY', 77, NULL, '2024-08-02 11:14:42.196654+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('3c3d5c3a-406e-48ec-b580-e73efa7637e0', 'c90de060-a79e-4748-b666-3f8476cee5f0', 'HISTORY', 49, NULL, '2024-08-02 11:14:42.20091+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('1c067c96-fd50-478f-9f51-3b53ad4c1066', '01ec0f6a-0bef-4cba-9829-513d1fb7bb23', 'HISTORY', 56, NULL, '2024-08-02 11:14:42.241218+00');
@@ -83,13 +89,7 @@ INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('6f699948-de92-416f-aba4-6a8c966682d8', 'e02ad86c-d5c1-403c-856b-b070016d4cb7', 'HISTORY', 76, NULL, '2024-08-02 11:14:42.434347+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('285171e7-e09b-4fc6-93ab-6ad593ca312c', '1538fb17-63e6-44ac-ba3d-095a0e647db3', 'HISTORY', 11, NULL, '2024-08-02 11:14:42.451504+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('d886c841-4eb4-4036-a92a-8c4c165c89a2', '0bc340e6-f066-4b34-9e40-80f0f625b977', 'HISTORY', 24, NULL, '2024-08-02 11:14:42.567101+00');
-INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('3cbdad64-41fb-421f-9d4c-2c0f6fb8fa25', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'PHYSICS', 100, NULL, '2024-08-02 11:14:28.020153+00');
-INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('61d67369-01f1-41c7-a379-3e431132cf65', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'ENGLISH', 100, NULL, '2024-08-02 11:14:17.981903+00');
 INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('a0a98a7f-5331-453e-9138-2b64ca6cc30e', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'HISTORY', 100, NULL, '2024-08-02 11:14:42.258624+00');
-INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('10c16dff-cd60-4b35-baac-b741935db322', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'CHEMISTRY', 100, NULL, '2024-08-02 11:14:34.876957+00');
-INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('2300d68e-c153-4cde-ab89-5b21c6d2330c', '77692f5c-deed-4401-b0bf-a3b2d339893c', 'ECONOMICS', 100, NULL, '2024-08-02 11:15:16.623622+00');
-INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('e76e9ee0-ef35-4e0c-b4af-8e70aa181621', 'ad4cff79-4f7a-40d3-b3dd-792c39d2a7b8', 'ECONOMICS', 95, NULL, '2024-08-02 11:15:16.628885+00');
-INSERT INTO public.grade (id, user_id, subject, grade, extra, created_at) VALUES ('90f568ce-b98f-4fa7-8a6f-908b230dcf02', '01ec0f6a-0bef-4cba-9829-513d1fb7bb23', 'ECONOMICS', 79, NULL, '2024-08-02 11:15:16.398897+00');
 
 
 --
