@@ -18,16 +18,14 @@ const isLoading = ref(false);
 
 const studentIdToView = ref(1);
 
-const fileInputRef = ref<FileList>();
+let fileList: FileList = [];
 const subjectRef = ref<Database['public']['Enums']['grade_subject']>('MATH');
 
 const currentUserDataRef = (await $client.user.get.useQuery()).data;
 
+const fileChanged = (event) => fileList = event.target.files
+
 const gradeSubmit = async () => {
-  const fileList = fileInputRef.value;
-
-  console.log(fileList);
-
   if (!fileList || fileList.length === 0) {
     alert('Please select a file!');
     return;
@@ -105,7 +103,7 @@ const gradeSubmit = async () => {
               <div class="space-y-2">
                 <Label for="grade-file">Grade File</Label>
                 <Input id="grade-file" type="file" accept=".csv" ref="fileInputRef"
-                  @input="fileInputRef = $event.target.files" />
+                  @change="fileChanged" />
               </div>
               <Button variant="outline" type="submit" class="w-full">Upload File</Button>
             </form>
